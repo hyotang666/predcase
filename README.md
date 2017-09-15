@@ -1,9 +1,9 @@
-# PREDCASE 0.0.0 - What is this?
+# PREDCASE 0.0.0 - New CASE like conditional operator.
 
-* Current lisp world
+## Current lisp world
 Special operator CL:COND provides strong primitive conditional diverge.
 
-* Issues
+## Issues
 CL:COND is too much concrete.
 In some cases, more abstruct and specific one is better (e.g. CL:TYPECASE CL:CASE etc...).
 And still there is a typical case which should be abstructed.
@@ -16,7 +16,7 @@ e.g.
   ((predN arg)(do-for-n ...)))
 ```
 
-* Proposal
+## Proposal
 PREDCASE covor it.
 
 ## Usage
@@ -30,8 +30,12 @@ PREDCASE covor it.
 
 ## From developer
 
-* Product's goal - Be merged by other famous utility libraries.
-* License - public domain
-* Developped with - CLISP
-* Tested with - SBCL, ECL, CCL
+### Product's goal
+Be merged by other famous utility libraries.
+### License
+public domain
+### Developped with
+CLISP
+### Tested with
+SBCL, ECL, CCL
 
