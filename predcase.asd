@@ -5,6 +5,6 @@
   :author "Shinich Sato"
   :license "Public Domain"
   :components((:file "predcase")))
-;; Perform method below is added by JINGOH.GENERATOR.
-(defmethod perform ((o test-op) (c (eql (find-system "predcase"))))
-  (test-system :predcase.test))
+
+(defmethod component-depends-on ((o test-op) (c (eql (find-system "predcase"))))
+  (append (call-next-method)'((test-op "predcase.test"))))
