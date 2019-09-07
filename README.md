@@ -37,5 +37,6 @@ public domain
 ### Developped with
 CLISP
 ### Tested with
-SBCL, ECL, CCL
+SBCL/1.5.6
+CCL/1.11.5
 
