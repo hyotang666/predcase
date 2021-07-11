@@ -3,7 +3,7 @@
 
 (defsystem :predcase
   :author "Shinich Sato"
-  :version "0.0.1"
+  :version "0.0.2"
   :license "Public Domain"
   :components((:file "predcase")))
 

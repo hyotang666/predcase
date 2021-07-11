@@ -27,7 +27,7 @@
                 "~S Invalid clause comes. ~S")))
        (apply #'format t control (simple-condition-format-arguments c))))))
 
-(defmacro predcase (arg &rest clauses)
+(defmacro predcase (arg &body clauses)
   (handler-bind ((invalid-clause
                   (lambda (c)
                     (rplaca (simple-condition-format-arguments c) 'predcase))))
@@ -37,7 +37,7 @@
          (declare (ignorable ,garg)) ; in order to validate (predcase :foo).
          (cond ,@(clauses clauses garg))))))
 
-(defmacro epredcase (arg &rest clauses)
+(defmacro epredcase (arg &body clauses)
   (handler-bind ((invalid-clause
                   (lambda (c)
                     (rplaca (simple-condition-format-arguments c) 'epredcase))))
@@ -50,7 +50,7 @@
                        :format-arguments (list 'epredcase ,garg
                                                ',(predicates clauses)))))))))
 
-(defmacro cpredcase (arg &rest clauses)
+(defmacro cpredcase (arg &body clauses)
   (handler-bind ((invalid-clause
                   (lambda (c)
                     (rplaca (simple-condition-format-arguments c) 'cpredcase))))
