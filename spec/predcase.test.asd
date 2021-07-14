@@ -1,6 +1,7 @@
 ; vim: ft=lisp et
 (in-package :asdf)
 (defsystem :predcase.test
+  :version "0.0.1"
   :depends-on
   (:jingoh "predcase")
   :components

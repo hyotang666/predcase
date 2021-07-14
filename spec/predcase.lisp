@@ -4,7 +4,7 @@
 (setup :predcase)
 
 (common-requirements-about (PREDCASE EPREDCASE)
-			   :as predcase)
+                           :as predcase)
 
 ;;;; Description:
 ; diverge by predicate, evaluate only satisfied clause.
@@ -37,7 +37,7 @@ NIL NIL"
     (null :yes)) ; <--- Using symbol as function name.
 => :YES
 #?(predcase nil
-    ((lambda(x)(null x)):yes)) ; <--- Using lambda-form as function name.
+    ((lambda (x) (null x)) :yes)) ; <--- Using lambda-form as function name.
 => :YES
 ; default-key := T | otherwise
 #?(predcase nil
@@ -50,7 +50,7 @@ NIL NIL"
 => :YES
 ; compound-predicate-specifier := (not predicate-specifier) | (and predicate-specifier*) | (or predicate-specifier*)
 #?(predcase nil
-    ((not identity):yes))
+    ((not identity) :yes))
 => :YES
 #?(predcase 1
     ((or zerop oddp) :yes))
@@ -59,11 +59,11 @@ NIL NIL"
     ((and listp atom) :yes))
 => :YES
 #?(predcase 1
-    ((or):never)
+    ((or) :never)
     (t :yes))
 => :yes
 #?(predcase 1
-    ((and):yes)
+    ((and) :yes)
     (t :never))
 => :yes
 
@@ -112,17 +112,17 @@ NIL NIL"
 #+syntax
 (CPREDCASE arg &rest clauses) ; => result
 ; when any clause is chosen, continueable error is signaled.
-#?(let((var nil))
+#?(let ((var nil))
     (cpredcase var
       (integerp :never)
       (stringp :never)))
 :signals error
 ,:with-restarts store-value
 
-#?(handler-bind((error(lambda(c)
-			(declare(ignore c))
-			(invoke-restart 'store-value 0))))
-    (let((var 1))
+#?(handler-bind ((error (lambda (c)
+                          (declare (ignore c))
+                          (invoke-restart 'store-value 0))))
+    (let ((var 1))
       (cpredcase var
         (zerop -> princ))
       (print var)))
